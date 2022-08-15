@@ -13,8 +13,7 @@ class CustomTheme {
       buttonTheme: ButtonThemeData( // 4
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
         buttonColor: AppColors.foregroundColor,
-      )
-
+      ),
     );
   }
 }

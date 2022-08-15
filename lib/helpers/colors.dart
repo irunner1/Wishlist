@@ -6,4 +6,6 @@ class AppColors{
   static const Color backgroundColor =  Color(0xff1e1d27);
   static const Color foregroundColor =  Color(0xff333144);
   static const Color cardColor =  Color(0xfffcfcff);
+  static const Color itemColor = Color(0xff916575);
+  static const Color navButtonColor = Color(0xff2C2B37);
 }
