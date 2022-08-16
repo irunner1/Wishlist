@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../theme/custom_theme.dart';
+import '../helpers/data.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -17,17 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
 @override
   Widget build(BuildContext context) {
-    final List<String> names = <String>['Дарья Малишевская', 'Елизавета Зарбаилова', 'Егор Корягин', 'Антон Матизен'];
-    final List<String> imgNames = <String>['dasha', 'lisa', 'egr', 'anto'];
-    final List<String> wishlistNames = <String>['День рождения'];
-    final List<String> wishlistImg = <String>['listOne'];
-    final List<String> recNames = <String>['Идеи подарков'];
-    final List<String> imgRecomendations = <String>['recs'];
-
     return ListView(
       children: [
         ListView(
           shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           children: <Widget>[
             Container( //шапка
               margin: const EdgeInsets.only(top: 20, bottom: 0),
@@ -80,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 190,
               child: ListView.builder(
                 padding: const EdgeInsets.only(top: 8, left: 0, right: 8, bottom: 8),
-                itemCount: names.length,
+                itemCount: Data.names.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -91,14 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
-                            'lib/assets/' + imgNames[index] + '.jpg',
+                            'lib/assets/' + Data.imgNames[index] + '.jpg',
                             fit: BoxFit.cover,
                             width: 140,
                             height: 140,
                           ),
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        Text(names[index],
+                        Text(Data.names[index],
                           style: const TextStyle(fontSize: 16, color: AppColors.textColor),
                             overflow: TextOverflow.fade,
                             maxLines: 1,
@@ -124,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 190,
               child: ListView.builder(
                 padding: const EdgeInsets.only(top: 8, left: 0, right: 8, bottom: 8),
-                itemCount: wishlistNames.length,
+                itemCount: Data.wishlistNames.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -148,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           // ),
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        Text(wishlistNames[index],
+                        Text(Data.wishlistNames[index],
                           style: const TextStyle(fontSize: 16, color: AppColors.textColor),
                             overflow: TextOverflow.fade,
                             maxLines: 1,
@@ -172,8 +167,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListView.builder(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20, bottom: 8),
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: recNames.length,
+              // physics: const NeverScrollableScrollPhysics(),
+              itemCount: Data.recNames.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return Stack(
@@ -187,11 +182,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderRadius: BorderRadius.circular(15),
                         image: DecorationImage(
                           fit: BoxFit.fitWidth,
-                          image: AssetImage('lib/assets/' + imgRecomendations[index] + '.jpg'),
+                          image: AssetImage('lib/assets/' + Data.imgRecomendations[index] + '.jpg'),
                         ),
                       ),
                     ),
-                    Text(recNames[index],
+                    Text(Data.recNames[index],
                       style: const TextStyle(fontSize: 24, color: AppColors.textColor),
                         overflow: TextOverflow.fade,
                         maxLines: 1,

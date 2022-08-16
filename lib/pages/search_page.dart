@@ -22,14 +22,14 @@ class SearchPage extends StatelessWidget {
                   ),
                   Container(height: 20),
                   TextField(
-                    // controller: editingController,
+                    // controller: сontroller,
                     decoration: InputDecoration(
                       hintText: "Search",
-                      prefixIcon: Icon(Icons.search, color: AppColors.subtextColor,),
+                      prefixIcon: const Icon(Icons.search, color: AppColors.subtextColor,),
                       filled: true,
                       fillColor: AppColors.textColor,
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.7),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20)))
                     ),
@@ -40,7 +40,7 @@ class SearchPage extends StatelessWidget {
           ],
         ),
         Container(
-          height: 500,
+          height: 100,
           padding: const EdgeInsets.only(top: 15),
           margin: const EdgeInsets.only(top: 20),
           decoration: const BoxDecoration(
@@ -61,6 +61,12 @@ class SearchPage extends StatelessWidget {
                 ),
               ),
             ),
+            Expanded(child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return ListTile();
+              },
+            ))
           ]),
         ),
       ],
