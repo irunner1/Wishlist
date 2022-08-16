@@ -51,14 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         Container(
-          padding: const EdgeInsets.only(top: 15, bottom: 0),
-          margin: const EdgeInsets.only(top: 15, bottom: 0),
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
+          padding: const EdgeInsets.only(top: 15),
+          margin: const EdgeInsets.only(top: 15),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
               topRight: Radius.circular(15),
               topLeft: Radius.circular(15), 
             ),
-            color: primaryColor,
+            color: AppColors.foregroundColor,
           ),
           child: Column(children: <Widget>[
             Container(

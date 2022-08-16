@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../helpers/data.dart';
@@ -7,12 +8,12 @@ class FriendsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Column(
           children: <Widget>[
             Container( //шапка
-              margin: const EdgeInsets.only(top: 60),
+              margin: const EdgeInsets.only(top: 50),
               padding: const EdgeInsets.only(left: 25, right: 25),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -26,7 +27,6 @@ class FriendsPage extends StatelessWidget {
         ),
         Container(height: 30),
         Container(
-          height: 700,
           padding: const EdgeInsets.only(top: 15),
           margin: const EdgeInsets.only(top: 20),
           decoration: const BoxDecoration(
@@ -36,39 +36,56 @@ class FriendsPage extends StatelessWidget {
             ),
             color: AppColors.foregroundColor,
           ),
-          child: Column(children: <Widget>[
-            Expanded(child: ListView.builder(
-              padding: const EdgeInsets.only(top: 8, left: 20, right: 20, bottom: 8),
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: Data.names.length,
-              shrinkWrap: true,
-              itemBuilder: (BuildContext context, int index) {
-                return Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 150,
-                      margin: const EdgeInsets.only(bottom: 10),
-                      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: AssetImage('lib/assets/' + Data.imgNames[index] + '.jpg'),
+          child: ListView.builder(
+            padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 30),
+            itemCount: Data.names.length,
+            shrinkWrap: true,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                child: Container(
+                  height: 110,
+                  margin: const EdgeInsets.only(bottom: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: AppColors.itemColor,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            'lib/assets/' + Data.imgNames[index] + '.jpg',
+                            fit: BoxFit.cover,
+                            width: 90,
+                            height: 90,
+                          ),
                         ),
                       ),
-                    ),
-                    Text(Data.names[index],
-                      style: const TextStyle(fontSize: 24, color: AppColors.textColor),
+                      Text(Data.names[index], //можно сделать перенос страницы
+                        style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                         overflow: TextOverflow.fade,
                         maxLines: 1,
-                        softWrap: false
-                    ),
-                  ],
-                );
-              }
-            ))
-          ]),
+                        softWrap: false,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 8),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: AppColors.textColor,
+                        ),
+                      )
+                    ]
+                  ),
+                ),
+                onTap: (){
+                  log('tap');
+                },
+              );
+            }
+          )
         ),
       ]
     );
