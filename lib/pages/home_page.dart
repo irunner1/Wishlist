@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../theme/custom_theme.dart';
 import '../helpers/data.dart';
+import '../helpers/person.dart';
 
 
 class MyHomePage extends StatefulWidget {
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 190,
               child: ListView.builder(
                 padding: const EdgeInsets.only(top: 8, left: 0, right: 8, bottom: 8),
-                itemCount: Data.names.length,
+                itemCount: people.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -86,14 +87,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
-                            'lib/assets/' + Data.imgNames[index] + '.jpg',
+                            people[index].image,
                             fit: BoxFit.cover,
                             width: 140,
                             height: 140,
                           ),
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        Text(Data.names[index],
+                        Text(people[index].name,
                           style: const TextStyle(fontSize: 16, color: AppColors.textColor),
                             overflow: TextOverflow.fade,
                             maxLines: 1,

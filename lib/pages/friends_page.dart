@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
-import '../helpers/data.dart';
 import '../helpers/person.dart';
 
 class FriendsPage extends StatelessWidget {
@@ -39,7 +38,7 @@ class FriendsPage extends StatelessWidget {
           ),
           child: ListView.builder(
             padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 30),
-            itemCount: Data.names.length,
+            itemCount: people.length,
             shrinkWrap: true,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
@@ -58,7 +57,7 @@ class FriendsPage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
-                            'lib/assets/' + Data.imgNames[index] + '.jpg',
+                            people[index].image,
                             fit: BoxFit.cover,
                             width: 90,
                             height: 90,
@@ -66,7 +65,7 @@ class FriendsPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        people[0].name, //можно сделать перенос текста на две строки
+                        people[index].name, //можно сделать перенос текста на две строки
                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                         overflow: TextOverflow.fade,
                         maxLines: 1,
@@ -83,7 +82,7 @@ class FriendsPage extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
-                  log(Data.names[index]);
+                  log(people[index].name);
                 },
               );
             }
