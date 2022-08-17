@@ -10,7 +10,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import '../helpers/data.dart';
 
 
-
 class MyMain extends StatefulWidget {
   const MyMain({Key? key}) : super(key: key);
 

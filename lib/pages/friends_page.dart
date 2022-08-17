@@ -1,11 +1,17 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:testwish/pages/friend_page.dart';
 import '../helpers/colors.dart';
 import '../helpers/person.dart';
 
-class FriendsPage extends StatelessWidget {
+class FriendsPage extends StatefulWidget {
   const FriendsPage({ Key? key }) : super(key: key);
 
+  @override
+  State<FriendsPage> createState() => _FriendsPageState();
+}
+
+class _FriendsPageState extends State<FriendsPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -83,6 +89,10 @@ class FriendsPage extends StatelessWidget {
                 ),
                 onTap: (){
                   log(people[index].name);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FriendPage(friendIndex: index,)),
+                  );
                 },
               );
             }

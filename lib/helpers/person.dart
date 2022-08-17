@@ -64,7 +64,7 @@ var user = [
 
 var people = [
   Person(
-    nickname: 'atsydaiu',
+    nickname: 'nlo1.0',
     name: 'Даша',
     surname: 'Малишевская',
     image: 'lib/assets/dasha.jpg',
@@ -101,7 +101,7 @@ var people = [
     ]
   ),
   Person(
-    nickname: 'atsydaiu',
+    nickname: 'betsuno',
     name: 'Елизавета',
     surname: 'Зарбаилова',
     image: 'lib/assets/lisa.jpg',
@@ -120,19 +120,14 @@ var people = [
     ]
   ),
   Person(
-    nickname: 'atsydaiu',
+    nickname: 'egrkino',
     name: 'Егор',
     surname: 'Корягин',
     image: 'lib/assets/egr.jpg',
-    wishes: [
-      Wishlist(
-        wishlistName: '',
-        items: []
-      )
-    ]
+    wishes: []
   ),
   Person(
-    nickname: 'atsydaiu',
+    nickname: 'mtzzzn',
     name: 'Антон',
     surname: 'Матизен',
     image: 'lib/assets/anto.jpg',

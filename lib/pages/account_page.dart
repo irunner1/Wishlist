@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../helpers/person.dart';
-
+import 'list_page.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({ Key? key }) : super(key: key);
@@ -51,6 +51,11 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   Container(height: 10),
                   Text(user[0].name + ' ' + user[0].surname, style: const TextStyle(fontSize: 22, color: AppColors.textColor)), //добавить $username 
+                  Container(height: 2),
+                  Text(
+                    '@' + user[0].nickname,
+                    style: const TextStyle( fontSize: 16, color: AppColors.subtextColor)
+                  ),
                   Container(height: 40),
                   const Text('Мои вишлисты', style: TextStyle(fontSize: 22, color: AppColors.textColor)),
                 ],
@@ -58,52 +63,60 @@ class _AccountPageState extends State<AccountPage> {
             ),
           ],
         ),
-        SizedBox(
-          child: GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 5.0,
-              mainAxisSpacing: 5.0,
-            ),
-            padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
-            itemCount: user[0].wishes.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                width: 140,
-                margin: const EdgeInsets.only(left: 20, right: 10),
-                child: Column(
-                  children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Container( //заменить на image asset
-                        width: 140,
-                        height: 140,
-                        color: AppColors.itemColor,
+        GestureDetector(
+          child: SizedBox(
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
+              ),
+              padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
+              itemCount: user[0].wishes.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  width: 140,
+                  margin: const EdgeInsets.only(left: 20, right: 10),
+                  child: Column(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Container( //заменить на image asset
+                          width: 140,
+                          height: 140,
+                          color: AppColors.itemColor,
+                        ),
                       ),
-                    ),
-                    // ClipRRect(
-                    //   borderRadius: BorderRadius.circular(15),
-                    //   child: Image.asset(
-                    //     people[index].image,
-                    //     fit: BoxFit.cover,
-                    //     width: 140,
-                    //     height: 140,
-                    //   ),
-                    // ),
-                    const Padding(padding: EdgeInsets.only(top: 10)),
-                    Text(user[0].wishes[index].wishlistName,
-                      style: const TextStyle(fontSize: 15, color: AppColors.textColor),
-                        overflow: TextOverflow.fade,
-                        maxLines: 1,
-                        softWrap: false
-                      )
-                  ],
-                ),
-              );
-            }
-          )
+                      // ClipRRect(
+                      //   borderRadius: BorderRadius.circular(15),
+                      //   child: Image.asset(
+                      //     people[index].image,
+                      //     fit: BoxFit.cover,
+                      //     width: 140,
+                      //     height: 140,
+                      //   ),
+                      // ),
+                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      Text(user[0].wishes[index].wishlistName,
+                        style: const TextStyle(fontSize: 15, color: AppColors.textColor),
+                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          softWrap: false
+                        )
+                    ],
+                  ),
+                );
+              }
+            )
+          ),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ListPage()),
+            );
+          },
         ),
       ],
     );

@@ -1,11 +1,6 @@
 class Data{
-  static bool isEnabled = false;
-  //друзья и картинки
-  // static final List<String> names = <String>['Дарья Малишевская', 'Елизавета Зарбаилова', 'Егор Корягин', 'Антон Матизен'];
-  // static final List<String> imgNames = <String>['dasha', 'lisa', 'egr', 'anto'];
-  //вишлисты и картинки
-  // static final List<String> wishlistNames = <String>['День рождения'];
-  // static final List<String> wishlistImg = <String>['listOne'];
+  static bool isEnabled = false; //переменная включает floatingactionbutton на странице account
+
   //рекомендации и картинки
   static final List<String> recNames = <String>['Идеи подарков'];
   static final List<String> imgRecomendations = <String>['recs'];
