@@ -3,20 +3,70 @@ import 'package:testwish/helpers/item.dart';
 
 
 class Person {
+  String nickname;
   String name;
+  String surname;
   String image;
   List<Wishlist> wishes;
 
   Person({
     required this.name,
+    required this.surname,
+    required this.nickname,
     required this.image,
     required this.wishes
   });
 }
 
+var user = [
+  Person(
+    nickname: 'atsydaiu',
+    name: 'Артём',
+    surname: 'Пучков',
+    image: 'lib/assets/me.jpg',
+    wishes: [
+      Wishlist(
+        wishlistName: 'День рождения',
+        items: [
+          Item(
+            itemName: 'Focusrite Scarlett 2i2',
+            itemImage: '',
+            itemPrice: '25000 р',
+            itemDescribtion: 'Focusrite Scarlett 2i2 3d Gen — профессиональная внешняя звуковая карта с аналоговыми предусилителями.'
+          ),
+          Item(
+            itemName: 'Coiled cable',
+            itemImage: '',
+            itemPrice: '3000 р',
+            itemDescribtion: 'Кастомный провод для клавиатуры белого цвета. Для придания рабочему столу уникальности'
+          ),
+          Item(
+            itemName: 'Audioengine A2+',
+            itemImage: '',
+            itemPrice: '19990 р',
+            itemDescribtion: 'Audioengine А2+ Wireless Настольная активная акустика премиум-класса c Bluetooth'
+          ),
+          Item(
+            itemName: 'Logitech mx master 3',
+            itemImage: '',
+            itemPrice: '9000 р',
+            itemDescribtion: 'Беспроводная мышь Logitech MX Master 3 создана для настоящих профессионалов.'
+          )
+        ]
+      ),
+      Wishlist(
+        wishlistName: 'Новый год',
+        items: []
+      )
+    ]
+  ),
+];
+
 var people = [
   Person(
-    name: 'Даша Малишевская',
+    nickname: 'atsydaiu',
+    name: 'Даша',
+    surname: 'Малишевская',
     image: 'lib/assets/dasha.jpg',
     wishes: [
       Wishlist(
@@ -51,7 +101,9 @@ var people = [
     ]
   ),
   Person(
-    name: 'Елизавета Зарбаилова',
+    nickname: 'atsydaiu',
+    name: 'Елизавета',
+    surname: 'Зарбаилова',
     image: 'lib/assets/lisa.jpg',
     wishes: [
       Wishlist(
@@ -68,7 +120,9 @@ var people = [
     ]
   ),
   Person(
-    name: 'Егор Корягин',
+    nickname: 'atsydaiu',
+    name: 'Егор',
+    surname: 'Корягин',
     image: 'lib/assets/egr.jpg',
     wishes: [
       Wishlist(
@@ -78,7 +132,9 @@ var people = [
     ]
   ),
   Person(
-    name: 'Антон Матизен',
+    nickname: 'atsydaiu',
+    name: 'Антон',
+    surname: 'Матизен',
     image: 'lib/assets/anto.jpg',
     wishes: [
       Wishlist(

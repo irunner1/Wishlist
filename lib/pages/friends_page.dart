@@ -65,7 +65,7 @@ class FriendsPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        people[index].name, //можно сделать перенос текста на две строки
+                        people[index].name + ' ' + people[index].surname, //можно сделать перенос текста на две строки
                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                         overflow: TextOverflow.fade,
                         maxLines: 1,

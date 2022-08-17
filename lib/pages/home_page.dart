@@ -32,10 +32,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Column(children: [
-                    const Text('Добрый день, Артём!', style: TextStyle(fontSize: 22, color: AppColors.textColor),), //добавить $username 
+                    Text(
+                      'Добрый день, ' + user[0].name + "!", //добавить разное приветствие на разное время
+                      style: const TextStyle(fontSize: 22, color: AppColors.textColor)
+                    ), 
                     Container(height: 2),
                     const Text('Самое время обновить вишлист',
-                      style: TextStyle( fontSize: 14, color: AppColors.subtextColor), ),
+                      style: TextStyle( fontSize: 14, color: AppColors.subtextColor)),
                   ],),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
@@ -94,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        Text(people[index].name,
+                        Text(people[index].name + " " + people[index].surname,
                           style: const TextStyle(fontSize: 16, color: AppColors.textColor),
                             overflow: TextOverflow.fade,
                             maxLines: 1,
@@ -120,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 190,
               child: ListView.builder(
                 padding: const EdgeInsets.only(top: 8, left: 0, right: 8, bottom: 8),
-                itemCount: Data.wishlistNames.length,
+                itemCount: user[0].wishes.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -144,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           // ),
                         ),
                         const Padding(padding: EdgeInsets.only(top: 10)),
-                        Text(Data.wishlistNames[index],
+                        Text(user[0].wishes[index].wishlistName,
                           style: const TextStyle(fontSize: 16, color: AppColors.textColor),
                             overflow: TextOverflow.fade,
                             maxLines: 1,
