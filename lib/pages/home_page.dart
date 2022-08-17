@@ -13,8 +13,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  int navIndex = 0;
   get primaryColor => CustomTheme.lightTheme.primaryColor;
 
 @override
@@ -43,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15),
                     child: Image.asset(
-                      'lib/assets/me.jpg',
+                      user[0].image,
                       fit: BoxFit.cover,
                       width: 105,
                       height: 105,

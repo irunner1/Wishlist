@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:testwish/pages/account_page.dart';
 import 'package:testwish/pages/friends_page.dart';
@@ -5,6 +7,8 @@ import 'package:testwish/pages/search_page.dart';
 import 'pages/home_page.dart';
 import '../helpers/colors.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import '../helpers/data.dart';
+
 
 
 class MyMain extends StatefulWidget {
@@ -68,12 +72,27 @@ class _MyMainState extends State<MyMain> {
             selectedIndex: navIndex,
             onTabChange: (index) {
               setState(() {
+                Data.isEnabled = false;
                 navIndex = index;
+                if (navIndex == 3) {
+                  Data.isEnabled = true;
+                }
               });
             },
           ),
         ),
       ),
+      floatingActionButton: Visibility(
+        visible: Data.isEnabled,
+        child: FloatingActionButton(
+          backgroundColor: AppColors.foregroundColor,
+          child: const Icon(Icons.add),
+          onPressed: () {
+            log('add wishlist');
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
