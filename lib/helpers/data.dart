@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-
-
 class Data{
   //друзья и картинки
   static final List<String> names = <String>['Дарья Малишевская', 'Елизавета Зарбаилова', 'Егор Корягин', 'Антон Матизен'];

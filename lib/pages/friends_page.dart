@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../helpers/data.dart';
+import '../helpers/person.dart';
 
 class FriendsPage extends StatelessWidget {
   const FriendsPage({ Key? key }) : super(key: key);
@@ -19,7 +20,7 @@ class FriendsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const <Widget>[
                     Text('Друзья', style: TextStyle(fontSize: 36, color: AppColors.textColor)),
-                    Icon(Icons.search, color: AppColors.textColor, size: 35),
+                    Icon(Icons.search, color: AppColors.textColor, size: 35), //добавить поиск по друзьям
                 ],
               ) 
             ),
@@ -64,7 +65,8 @@ class FriendsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(Data.names[index], //можно сделать перенос страницы
+                      Text(
+                        people[0].name, //можно сделать перенос текста на две строки
                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                         overflow: TextOverflow.fade,
                         maxLines: 1,
@@ -81,7 +83,7 @@ class FriendsPage extends StatelessWidget {
                   ),
                 ),
                 onTap: (){
-                  log('tap');
+                  log(Data.names[index]);
                 },
               );
             }
