@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
 import '../helpers/person.dart';
+import 'friend_list_page.dart';
+
 
 
 class FriendPage extends StatelessWidget {
@@ -68,52 +70,60 @@ class FriendPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 5.0,
-                mainAxisSpacing: 5.0,
-              ),
-              padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
-              itemCount: people[friendIndex].wishes.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  width: 140,
-                  margin: const EdgeInsets.only(left: 20, right: 10),
-                  child: Column(
-                    children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Container( //заменить на image asset
-                          width: 140,
-                          height: 140,
-                          color: AppColors.itemColor,
+          GestureDetector(
+            child: SizedBox(
+              child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 5.0,
+                  mainAxisSpacing: 5.0,
+                ),
+                padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
+                itemCount: people[friendIndex].wishes.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    width: 140,
+                    margin: const EdgeInsets.only(left: 20, right: 10),
+                    child: Column(
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Container( //заменить на image asset
+                            width: 140,
+                            height: 140,
+                            color: AppColors.itemColor,
+                          ),
                         ),
-                      ),
-                      // ClipRRect(
-                      //   borderRadius: BorderRadius.circular(15),
-                      //   child: Image.asset(
-                      //     people[index].image,
-                      //     fit: BoxFit.cover,
-                      //     width: 140,
-                      //     height: 140,
-                      //   ),
-                      // ),
-                      const Padding(padding: EdgeInsets.only(top: 10)),
-                      Text(people[friendIndex].wishes[index].wishlistName,
-                        style: const TextStyle(fontSize: 15, color: AppColors.textColor),
-                          overflow: TextOverflow.fade,
-                          maxLines: 1,
-                          softWrap: false
-                        )
-                    ],
-                  ),
-                );
-              }
-            )
+                        // ClipRRect(
+                        //   borderRadius: BorderRadius.circular(15),
+                        //   child: Image.asset(
+                        //     people[index].image,
+                        //     fit: BoxFit.cover,
+                        //     width: 140,
+                        //     height: 140,
+                        //   ),
+                        // ),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
+                        Text(people[friendIndex].wishes[index].wishlistName,
+                          style: const TextStyle(fontSize: 15, color: AppColors.textColor),
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            softWrap: false
+                          )
+                      ],
+                    ),
+                  );
+                }
+              )
+            ),
+            onTap: () {
+              Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FriendListPage()),
+            );
+            },
           ),
         ],
       ),

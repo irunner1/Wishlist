@@ -5,8 +5,8 @@ import '../helpers/colors.dart';
 import '../helpers/person.dart';
 
 
-class ListPage extends StatelessWidget {
-  const ListPage({ Key? key }) : super(key: key);
+class FriendListPage extends StatelessWidget {
+  const FriendListPage({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ListPage extends StatelessWidget {
                           },
                         ),
                         Text(
-                          user[0].wishes[0].wishlistName,
+                          people[0].wishes[0].wishlistName,
                           style: const TextStyle(fontSize: 22, color: AppColors.textColor),
                               overflow: TextOverflow.fade,
                               maxLines: 1,
@@ -58,7 +58,6 @@ class ListPage extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(top: 15),
-            // margin: const EdgeInsets.only(top: 15),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(15),
@@ -77,7 +76,7 @@ class ListPage extends StatelessWidget {
                 ),
                 child: ListView.builder(
                   padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 30),
-                  itemCount: user[0].wishes[0].items.length,
+                  itemCount: people[0].wishes[0].items.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
@@ -96,7 +95,7 @@ class ListPage extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: Image.network(
-                                user[0].wishes[0].items[index].itemImage,
+                                people[0].wishes[0].items[index].itemImage,
                                 fit: BoxFit.cover,
                                 width: 120,
                                 height: 130,
@@ -111,7 +110,7 @@ class ListPage extends StatelessWidget {
                                 SizedBox(
                                   width: 1000,
                                   child: Text(
-                                    user[0].wishes[0].items[index].itemName,
+                                    people[0].wishes[0].items[index].itemName,
                                     style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                     overflow: TextOverflow.fade,
                                     maxLines: 1,
@@ -121,7 +120,7 @@ class ListPage extends StatelessWidget {
                                 ),
                                 Container(height: 10),
                                 Text(
-                                  user[0].wishes[0].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
+                                  people[0].wishes[0].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
                                   style: const TextStyle(fontSize: 14, color: AppColors.textColor),
                                 ),
                                 Container(height: 10),
@@ -131,16 +130,17 @@ class ListPage extends StatelessWidget {
                                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        user[0].wishes[0].items[index].itemPrice, //можно сделать перенос текста на две строки
+                                        people[0].wishes[0].items[index].itemPrice, //можно сделать перенос текста на две строки
                                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                         overflow: TextOverflow.fade,
                                         maxLines: 1,
                                         softWrap: false,
                                       ),
                                       const Spacer(),
-                                      const Icon(
-                                        Icons.delete,
+                                      IconButton(
+                                        icon: new Icon(Icons.indeterminate_check_box_outlined),
                                         color: AppColors.textColor,
+                                        onPressed: () {  },
                                       ),
                                       Container(width: 10),
                                       const Icon(
