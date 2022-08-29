@@ -162,7 +162,127 @@ class ListPage extends StatelessWidget {
             ]),
           )
         ]
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.foregroundColor,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          log('add item to wishlist');
+          showModalBottomSheet (
+            isScrollControlled: true,
+            backgroundColor: AppColors.foregroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                height: MediaQuery.of(context).size.height * 0.8,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width - 40,
+                      height: 150,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: AppColors.selectImageColor
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Добавить изображение',
+                          style: TextStyle(
+                            color: AppColors.textColor,
+                            fontSize: 18,
+                          ),
+                        )
+                      ),
+                    ),
+                    const Spacer(),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: "Название",
+                        filled: true,
+                        fillColor: AppColors.cardColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5)))
+                      ),
+                    ),
+                    const Spacer(),
+                    SizedBox(
+                      height: 100,
+                      child: TextField(
+                        maxLines: 6,
+                        decoration: InputDecoration(
+                          hintText: "Описание",
+                          filled: true,
+                          fillColor: AppColors.cardColor,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5)))
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: "Цена",
+                        filled: true,
+                        fillColor: AppColors.cardColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5)))
+                      ),
+                    ),
+                    const Spacer(),
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: "Ссылка на товар",
+                        filled: true,
+                        fillColor: AppColors.cardColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5)))
+                      ),
+                    ),
+                    const Spacer(),
+                    Container(
+                      width: MediaQuery.of(context).size.width - 40,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: AppColors.backgroundColor
+                      ),
+                      child: TextButton(
+                        onPressed: (() {
+                          
+                        }),
+                        style: TextButton.styleFrom(                    
+                          backgroundColor: AppColors.backgroundColor,
+                          padding: const EdgeInsets.all(10),
+                        ),
+                        child: const Text(
+                          'Добавить',
+                          style: TextStyle(
+                            color: AppColors.textColor,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            }
+          );
+        },
+      ),
     );
   }
 }

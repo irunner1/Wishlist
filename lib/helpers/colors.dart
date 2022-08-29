@@ -8,4 +8,5 @@ class AppColors{
   static const Color cardColor =  Color(0xfffcfcff);
   static const Color itemColor = Color(0xff916575);
   static const Color navButtonColor = Color(0xff2C2B37);
+  static const Color selectImageColor = Color(0xff51505f);
 }
