@@ -86,7 +86,7 @@ class _SearchPageState extends State<SearchPage> {
               Expanded(child: ListView.builder(
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return ListTile();
+                  return const ListTile();
                 },
               ))
             ]),

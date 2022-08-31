@@ -6,7 +6,8 @@ import '../helpers/person.dart';
 
 
 class ListPage extends StatelessWidget {
-  const ListPage({ Key? key }) : super(key: key);
+  final int wishlistIndex;
+  const ListPage({ Key? key, required this.wishlistIndex }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class ListPage extends StatelessWidget {
                           },
                         ),
                         Text(
-                          user[0].wishes[0].wishlistName,
+                          user[0].wishes[wishlistIndex].wishlistName,
                           style: const TextStyle(fontSize: 22, color: AppColors.textColor),
                               overflow: TextOverflow.fade,
                               maxLines: 1,
@@ -77,7 +78,7 @@ class ListPage extends StatelessWidget {
                 ),
                 child: ListView.builder(
                   padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 30),
-                  itemCount: user[0].wishes[0].items.length,
+                  itemCount: user[0].wishes[wishlistIndex].items.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
@@ -96,7 +97,7 @@ class ListPage extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: Image.network(
-                                user[0].wishes[0].items[index].itemImage,
+                                user[0].wishes[wishlistIndex].items[index].itemImage,
                                 fit: BoxFit.cover,
                                 width: 120,
                                 height: 130,
@@ -106,12 +107,13 @@ class ListPage extends StatelessWidget {
                           Flexible(
                             fit: FlexFit.loose,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(height: 4),
+                                Container(height: 5),
                                 SizedBox(
-                                  width: 1000,
+                                  width: 300,
                                   child: Text(
-                                    user[0].wishes[0].items[index].itemName,
+                                    user[0].wishes[wishlistIndex].items[index].itemName,
                                     style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                     overflow: TextOverflow.fade,
                                     maxLines: 1,
@@ -119,19 +121,22 @@ class ListPage extends StatelessWidget {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                Container(height: 10),
+                                const Spacer(),
                                 Text(
-                                  user[0].wishes[0].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
-                                  style: const TextStyle(fontSize: 14, color: AppColors.textColor),
+                                  user[0].wishes[wishlistIndex].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    color: AppColors.textColor
+                                  ),
+                                  maxLines: 5,
                                 ),
-                                Container(height: 10),
+                                const Spacer(),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 8),
                                   child: Row(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        user[0].wishes[0].items[index].itemPrice, //можно сделать перенос текста на две строки
+                                        user[0].wishes[wishlistIndex].items[index].itemPrice, //можно сделать перенос текста на две строки
                                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                         overflow: TextOverflow.fade,
                                         maxLines: 1,
@@ -149,6 +154,9 @@ class ListPage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
                                 )
                               ],
                             ),

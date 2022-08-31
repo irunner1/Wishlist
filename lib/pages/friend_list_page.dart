@@ -6,7 +6,8 @@ import '../helpers/person.dart';
 
 
 class FriendListPage extends StatelessWidget {
-  const FriendListPage({ Key? key }) : super(key: key);
+  final int friendIndex, friendWishlistIndex;
+  const FriendListPage({ Key? key, required this.friendIndex, required this.friendWishlistIndex }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class FriendListPage extends StatelessWidget {
                           },
                         ),
                         Text(
-                          people[0].wishes[0].wishlistName,
+                          people[friendIndex].wishes[friendWishlistIndex].wishlistName,
                           style: const TextStyle(fontSize: 22, color: AppColors.textColor),
                               overflow: TextOverflow.fade,
                               maxLines: 1,
@@ -76,7 +77,7 @@ class FriendListPage extends StatelessWidget {
                 ),
                 child: ListView.builder(
                   padding: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 30),
-                  itemCount: people[0].wishes[0].items.length,
+                  itemCount: people[friendIndex].wishes[friendWishlistIndex].items.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
@@ -95,7 +96,7 @@ class FriendListPage extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(15),
                               child: Image.network(
-                                people[0].wishes[0].items[index].itemImage,
+                                people[friendIndex].wishes[friendWishlistIndex].items[index].itemImage,
                                 fit: BoxFit.cover,
                                 width: 120,
                                 height: 130,
@@ -105,12 +106,13 @@ class FriendListPage extends StatelessWidget {
                           Flexible(
                             fit: FlexFit.loose,
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(height: 4),
+                                const SizedBox(height: 5),
                                 SizedBox(
-                                  width: 1000,
+                                  width: 300,
                                   child: Text(
-                                    people[0].wishes[0].items[index].itemName,
+                                    people[friendIndex].wishes[friendWishlistIndex].items[index].itemName,
                                     style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                     overflow: TextOverflow.fade,
                                     maxLines: 1,
@@ -118,19 +120,26 @@ class FriendListPage extends StatelessWidget {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
-                                Container(height: 10),
-                                Text(
-                                  people[0].wishes[0].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
-                                  style: const TextStyle(fontSize: 14, color: AppColors.textColor),
+                                const Spacer(),
+                                SizedBox(
+                                  width: 300,
+                                  child: Text(
+                                    people[friendIndex].wishes[friendWishlistIndex].items[index].itemDescribtion, //user[0].wishes[0].items[index].itemDescribtion
+                                    style: const TextStyle(fontSize: 14, color: AppColors.textColor),
+                                    overflow: TextOverflow.fade,
+                                    maxLines: 1,
+                                    softWrap: false,
+                                    textAlign: TextAlign.left,
+                                  ),
                                 ),
-                                Container(height: 10),
+                                const Spacer(),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 8),
                                   child: Row(
                                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        people[0].wishes[0].items[index].itemPrice, //можно сделать перенос текста на две строки
+                                        people[friendIndex].wishes[friendWishlistIndex].items[index].itemPrice, //можно сделать перенос текста на две строки
                                         style: const TextStyle(fontSize: 18, color: AppColors.textColor),
                                         overflow: TextOverflow.fade,
                                         maxLines: 1,
@@ -138,7 +147,7 @@ class FriendListPage extends StatelessWidget {
                                       ),
                                       const Spacer(),
                                       IconButton(
-                                        icon: new Icon(Icons.indeterminate_check_box_outlined),
+                                        icon: const Icon(Icons.indeterminate_check_box_outlined),
                                         color: AppColors.textColor,
                                         onPressed: () {  },
                                       ),

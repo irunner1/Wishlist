@@ -70,20 +70,20 @@ class FriendPage extends StatelessWidget {
               ),
             ],
           ),
-          GestureDetector(
-            child: SizedBox(
-              child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 5.0,
-                  mainAxisSpacing: 5.0,
-                ),
-                padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
-                itemCount: people[friendIndex].wishes.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
+          SizedBox(
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
+              ),
+              padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
+              itemCount: people[friendIndex].wishes.length,
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  child: Container(
                     width: 140,
                     margin: const EdgeInsets.only(left: 20, right: 10),
                     child: Column(
@@ -114,16 +114,16 @@ class FriendPage extends StatelessWidget {
                           )
                       ],
                     ),
-                  );
-                }
-              )
-            ),
-            onTap: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => FriendListPage()),
-            );
-            },
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FriendListPage(friendIndex: friendIndex, friendWishlistIndex: index,)),
+                    );
+                  },
+                );
+              }
+            )
           ),
         ],
       ),
