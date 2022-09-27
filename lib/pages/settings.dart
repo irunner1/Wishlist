@@ -185,7 +185,7 @@ class MySettings extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        log('friends');
+                        log('friend');
                       },
                     ),
                     const Divider(
