@@ -58,6 +58,7 @@ class FriendListPage extends StatelessWidget {
             ],
           ),
           Container(
+            height: MediaQuery.of(context).size.height, //edit this
             padding: const EdgeInsets.only(top: 15),
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(

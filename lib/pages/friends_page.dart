@@ -33,6 +33,7 @@ class _FriendsPageState extends State<FriendsPage> {
         ),
         Container(height: 30),
         Container(
+          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.only(top: 15),
           margin: const EdgeInsets.only(top: 20),
           decoration: const BoxDecoration(
