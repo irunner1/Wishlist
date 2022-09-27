@@ -15,23 +15,27 @@ class MySettings extends StatelessWidget {
         children: <Widget>[
           Container(
               margin: const EdgeInsets.only(top: 10),
-              padding: const EdgeInsets.only(left: 20, right: 15, bottom: 10),
+              padding: const EdgeInsets.only(left: 40, right: 15, bottom: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back_ios,
-                            color: AppColors.textColor),
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          color: AppColors.textColor
+                        ),
                         iconSize: 30,
                         splashRadius: 30,
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      const Spacer(),
+                      const SizedBox(
+                        width: 50,
+                      ),
                       const Text(
                         'Настройки',
                         style: TextStyle(
@@ -41,7 +45,7 @@ class MySettings extends StatelessWidget {
                         softWrap: false,
                       ),
                       const Spacer(
-                        flex: 2,
+                        flex: 3,
                       )
                     ],
                   )
@@ -88,8 +92,7 @@ class MySettings extends StatelessWidget {
                             width: MediaQuery.of(context).size.width / 2,
                             alignment: Alignment.centerLeft,
                             child: Column(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment:  MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
                                   alignment: Alignment.centerLeft,
@@ -102,16 +105,22 @@ class MySettings extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                const Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    'Изменить профиль',
-                                    style: TextStyle(
-                                      color: AppColors.textColor,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 20,
+                                
+                                GestureDetector(
+                                  child: const Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Изменить профиль',
+                                      style: TextStyle(
+                                        color: AppColors.textColor,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 18,
+                                      ),
                                     ),
                                   ),
+                                  onTap: () {
+                                    log('edit');
+                                  },
                                 )
                               ],
                             ),
@@ -128,8 +137,8 @@ class MySettings extends StatelessWidget {
                     ),
                     GestureDetector(
                       child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, left: 10, right: 40, bottom: 10),
+                        padding: const EdgeInsets.only(top: 10, left: 10, right: 40, bottom: 10),
+                        color: AppColors.foregroundColor,
                         width: MediaQuery.of(context).size.width / 1.25,
                         child: Row(
                           children: const [
@@ -162,8 +171,8 @@ class MySettings extends StatelessWidget {
                     ),
                     GestureDetector(
                       child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, left: 10, right: 40, bottom: 10),
+                        color: AppColors.foregroundColor,
+                        padding: const EdgeInsets.only(top: 10, left: 10, right: 40, bottom: 10),
                         width: MediaQuery.of(context).size.width / 1.25,
                         child: Row(
                           children: const [
@@ -196,8 +205,8 @@ class MySettings extends StatelessWidget {
                     ),
                     GestureDetector(
                       child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, left: 10, right: 40, bottom: 10),
+                        padding: const EdgeInsets.only(top: 10, left: 10, right: 40, bottom: 10),
+                        color: AppColors.foregroundColor,
                         width: MediaQuery.of(context).size.width / 1.25,
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -231,8 +240,8 @@ class MySettings extends StatelessWidget {
                     ),
                     GestureDetector(
                       child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, left: 10, right: 40, bottom: 10),
+                        padding: const EdgeInsets.only(top: 10, left: 10, right: 40, bottom: 10),
+                        color: AppColors.foregroundColor,
                         width: MediaQuery.of(context).size.width / 1.25,
                         child: Row(
                           children: const [

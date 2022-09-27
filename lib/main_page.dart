@@ -31,6 +31,7 @@ class _MyMainState extends State<MyMain> {
       extendBody: true,
       body: pages[navIndex],
       bottomNavigationBar: Container(
+        height: 75,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(15),
