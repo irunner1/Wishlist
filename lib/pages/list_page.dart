@@ -69,6 +69,7 @@ class ListPage extends StatelessWidget {
             ),
             child: Column(children: <Widget>[
               Container(
+                height: MediaQuery.of(context).size.height / 1.2,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(15),
