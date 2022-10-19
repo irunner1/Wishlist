@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../helpers/colors.dart';
+import '../helpers/data.dart';
 
 
 class SearchPage extends StatefulWidget {
@@ -62,7 +63,7 @@ class _SearchPageState extends State<SearchPage> {
             ],
           ),
           Container(
-            height: 100,
+            height: 600,
             padding: const EdgeInsets.only(top: 15),
             margin: const EdgeInsets.only(top: 20),
             decoration: const BoxDecoration(
@@ -83,12 +84,67 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
               ),
-              Expanded(child: ListView.builder(
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return const ListTile();
-                },
-              ))
+              Expanded(
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                  ),
+                  padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
+                  itemCount: 6,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      child: Container(
+                        width: 100,
+                        margin: const EdgeInsets.only(left: 20, right: 10),
+                        child: Column(
+                          children: <Widget>[
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Container(
+                                //заменить на image asset
+                                width: 90,
+                                height: 90,
+                                color: AppColors.itemColor,
+                              ),
+                            ),
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.circular(15),
+                            //   child: Image.asset(
+                            //     people[index].image,
+                            //     fit: BoxFit.cover,
+                            //     width: 140,
+                            //     height: 140,
+                            //   ),
+                            // ),
+                            const Padding(padding: EdgeInsets.only(top: 10)),
+                            Text(
+                              Data.categoryNames[index],
+                              style: const TextStyle(
+                                fontSize: 15, color: AppColors.textColor),
+                                overflow: TextOverflow.fade,
+                                maxLines: 1,
+                                softWrap: false
+                              )
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => ListPage(
+                        //             wishlistIndex: index,
+                        //           )),
+                        // );
+                      },
+                    );
+                  }
+                )
+              )
             ]),
           ),
         ],

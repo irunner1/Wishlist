@@ -4,4 +4,5 @@ class Data{
   //рекомендации и картинки
   static final List<String> recNames = <String>['Идеи подарков'];
   static final List<String> imgRecomendations = <String>['recs'];
+  static final List<String> categoryNames = <String>['Электроника', 'Для дома', 'Одежда и обувь', 'Бытовая техника', 'Аксессуары', 'Игры'];
 }
