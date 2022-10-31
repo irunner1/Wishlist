@@ -90,15 +90,15 @@ class _SearchPageState extends State<SearchPage> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 5.0,
-                    mainAxisSpacing: 5.0,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 1.0,
                   ),
-                  padding: const EdgeInsets.only(top: 10, right: 10, bottom: 8),
+                  padding: const EdgeInsets.only(top: 10, right: 20, bottom: 8,),
                   itemCount: 6,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       child: Container(
-                        width: 100,
+                        width: 200,
                         margin: const EdgeInsets.only(left: 20, right: 10),
                         child: Column(
                           children: <Widget>[
